@@ -120,7 +120,9 @@ doc_events = {
 	"Employee":{
 		"before_save":["highnoon.highnoon.custom_script.employee.employee.before_save",
 		"highnoon.highnoon.custom_script.employee.employee.update_item_details",
-		"highnoon.highnoon.custom_script.employee.employee.update_sales_invoice_details"]
+		"highnoon.highnoon.custom_script.employee.employee.update_sales_invoice_details",
+		"highnoon.highnoon.custom_script.employee.employee.update_job_offer_cost_center",
+		"highnoon.highnoon.custom_script.employee.employee.update_job_applicant_cost_center"]
 	},
 	"Job Offer":{
 		"before_save":"highnoon.highnoon.custom_script.job_offer.job_offer.validate",

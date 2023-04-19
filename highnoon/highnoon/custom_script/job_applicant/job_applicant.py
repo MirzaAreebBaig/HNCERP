@@ -143,8 +143,8 @@ def validate_item_joining_date(doc,method):
             frappe.db.set_value("Item", i["name"] ,"customer_master" , doc.client_name)
             frappe.db.set_value("Item", i["name"] ,"company" , doc.company_name)
             frappe.db.set_value("Item", i["name"] ,"deployment_location" , doc.deployment_location)
-            frappe.db.set_value("Item", i["name"] ,"aadhar_card" , doc.aadhar_card)
-            frappe.db.set_value("Item", i["name"] ,"pan_card" , doc.pan_card)
+            # frappe.db.set_value("Item", i["name"] ,"aadhar_card" , doc.aadhar_card)
+            # frappe.db.set_value("Item", i["name"] ,"pan_card" , doc.pan_card)
             frappe.db.commit()
 
 def validate_sales_invoice_joining_date(doc,method):
