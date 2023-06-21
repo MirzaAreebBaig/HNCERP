@@ -9,17 +9,15 @@ def execute(filters=None):
 
 def get_data(filters):
     if filters:
-        _from, to = filters.get('from'), filters.get('to') #date range
+        _from, to = filters.get('from'), filters.get('to') 
         company = filters.get('company')
-        # conditions = " AND 1=1 "
-        # if(filters.get('name')):conditions += f" AND name='{filters.get('name')}' "
         data =frappe.db.sql(f"""SELECT 
         c.account_number,
         e.bank_ac_no,
         e.emp_name,
         s.net_pay,
         e.payment_mode,
-        s.modified,
+        CAST(s.modified AS DATE) AS posting_date,
         e.ifsc_code,
         e.cell_number,
         e.personal_email
@@ -33,7 +31,7 @@ def get_data(filters):
         e.emp_name,
         s.net_pay,
         e.payment_mode,
-        s.modified,
+        CAST(s.modified AS DATE) AS posting_date,
         e.ifsc_code,
         e.cell_number,
         e.personal_email
@@ -75,7 +73,7 @@ def get_columns(filters):
         },
 		{
             "label": _("Posting Date"),
-            "fieldname": "modified",
+            "fieldname": "posting_date",
             "fieldtype": "Date",
             "width": 150,
         },

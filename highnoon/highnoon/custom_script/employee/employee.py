@@ -128,3 +128,11 @@ def update_job_applicant_cost_center(doc,method):
             frappe.db.set_value("Job Applicant", i["name"] ,"cost_center" , doc.payroll_cost_center)
             frappe.db.commit()  
     
+#--------------------------------------------create new employee separtion doc---------------
+
+def validate(self,method):
+    if self.status == "Inactive":
+        doc = frappe.new_doc("Employee Separation")
+        doc.employee = self.name
+        doc.notify_users_by_email = 1
+        doc.save()
